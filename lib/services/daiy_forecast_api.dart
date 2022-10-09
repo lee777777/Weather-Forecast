@@ -25,7 +25,7 @@ Future<DailyData> fetchDailyForecastData( LocationString loc) async {
     //
     print('forecast of first day condition: ${jsonDecode(response.body)['forecast']['forecastday'][0]['day']['condition']['text']}');
     result = DailyData.fromJson(jsonDecode(response.body));
-    print('result of forecast day press for second day: ${result.list![0].maxtemp_c}');
+    print('result of forecast day temp for second day: ${result.list![0].maxtemp_c}');
     return result;
   } else {
     // If the server did not return a 200 OK response,

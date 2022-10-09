@@ -7,7 +7,7 @@ class WeatherData {
    double? wind_kph;
    String? wind_dir;
    double? pressure_mb;
-   int? humidity;
+   double? humidity;
    int? cloud;
    int? is_day;
    String? locationName;
@@ -48,7 +48,7 @@ class WeatherData {
         wind_kph: json['current']['wind_kph'],
         wind_dir: json['current']['wind_dir'],
         pressure_mb: json['current']['pressure_mb'],
-        humidity: json['current']['humidity'],
+        humidity: json['current']['humidity'].toDouble(),
         cloud: json['current']['cloud'],
         is_day: json['current']['is_day'],
         locationCountry: json['location']['country'],

@@ -21,11 +21,11 @@ Future<HourlyData> fetchForecastData( LocationString loc) async {
     // If the server did return a 200 OK response,
     // then parse the JSON.
     //print('Daily forecast weather:  ${response.body}');
-    // print('temp: ${jsonDecode(response.body)['current']['temp_c']}');
-    //
-    //print('forecast of first day condition: ${jsonDecode(response.body)['forecast']['forecastday'][0]['day']['condition']['text']}');
+     print('temp for first hour of the day: ${jsonDecode(response.body)['forecast']['forecastday'][0]['hour'][0]['temp_c']}');
+
+
     result = HourlyData.fromJson(jsonDecode(response.body));
-    //print('result of forecast day press for second day: ${result.list![0].maxtemp_c}');
+    print('result of second hour temp: ${result.list![1].temp_c} and time:${result.list![1].time}');
     return result;
   } else {
     // If the server did not return a 200 OK response,

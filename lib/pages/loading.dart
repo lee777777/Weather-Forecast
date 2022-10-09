@@ -43,7 +43,9 @@ class _LoadingState extends State<Loading> {
       'pressure_mb': futureCurrentWeather.pressure_mb,
       'humidity': futureCurrentWeather.humidity,
       'cloud': futureCurrentWeather.cloud,
-      'is_day': futureCurrentWeather.is_day
+      'is_day': futureCurrentWeather.is_day,
+      'locationName': futureCurrentWeather.locationName,
+      'time': futureCurrentWeather.time
     });
 
 

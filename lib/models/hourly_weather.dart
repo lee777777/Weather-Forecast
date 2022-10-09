@@ -25,7 +25,7 @@ class HourlyData {
     wind_kph: jsonList[index]['wind_kph'],
     wind_dir: jsonList[index]['wind_dir'],
     pressure_mb: jsonList[index]['pressure_mb'],
-    humidity: jsonList[index]['humidity'],
+    humidity: jsonList[index]['humidity'].toDouble(),
     cloud: jsonList[index]['cloud'],
     is_day: jsonList[index]['is_day'],
                 locationCountry: location_country,
