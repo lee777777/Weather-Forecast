@@ -25,7 +25,7 @@ Future<HourlyData> fetchForecastData( LocationString loc) async {
 
 
     result = HourlyData.fromJson(jsonDecode(response.body));
-    print('result of second hour temp: ${result.list![1].temp_c} and time:${result.list![1].time}');
+  //  print('result of second hour temp: ${result.list![1].temp_c} and time:${result.list![1].time}');
     return result;
   } else {
     // If the server did not return a 200 OK response,

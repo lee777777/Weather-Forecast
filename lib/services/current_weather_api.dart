@@ -19,7 +19,7 @@ import 'package:weather_lady2/models/location_data.dart';
          // then parse the JSON.
          print('current weather:  ${response.body}');
          print('temp: ${jsonDecode(response.body)['current']['temp_c']}');
-
+         print('location country: ${jsonDecode(response.body)['location']['country']}');
          result = WeatherData.fromJson(jsonDecode(response.body));
          print('result: ${result.conditionText}');
          return result;

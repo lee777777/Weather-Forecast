@@ -37,7 +37,18 @@ class WeatherData {
       this.maxwind_kph});
 
 
-  WeatherData.empty();
+  WeatherData.empty(){
+    this.temp_c = 0;
+    this.conditionText = '';
+    this.conditionIcon ='';
+    this.humidity= 0;
+    this.locationName='';
+    this.locationCountry='';
+    this.time='';
+    this.maxtemp_c= 0;
+    this.mintemp_c= 0;
+    this.maxwind_kph= 0;
+  }
 
   factory WeatherData.fromJson (Map<String, dynamic> json) {
     return WeatherData(

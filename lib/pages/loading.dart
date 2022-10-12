@@ -45,7 +45,9 @@ class _LoadingState extends State<Loading> {
       'cloud': futureCurrentWeather.cloud,
       'is_day': futureCurrentWeather.is_day,
       'locationName': futureCurrentWeather.locationName,
-      'time': futureCurrentWeather.time
+      'time': futureCurrentWeather.time,
+      'locationCountry': futureCurrentWeather.locationCountry,
+      'hours': weatherHours.list
     });
 
 
@@ -59,12 +61,14 @@ class _LoadingState extends State<Loading> {
   @override
   Widget build(BuildContext context){
     return Scaffold(
-      backgroundColor: Colors.indigo,
-      body: Center(
-        child: SpinKitPouringHourGlassRefined(
+      backgroundColor: Colors.blue,
+      body:
+      Center(
+        child: SpinKitSpinningLines(
           color: Colors.white,
-          size: 80.0,
+          size: 120.0,
         ),
+
       ),
     );
   }
