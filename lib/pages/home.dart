@@ -19,10 +19,9 @@ class _HomeState extends State<Home> {
 
     data = data.isNotEmpty ? data :ModalRoute.of(context)?.settings.arguments as Map;
     List timeList = returnTime(data['time']);
-    int hoursTime = int.parse(timeList[0]);
-   int minutsTime = int.parse(timeList[1]);
-    String time = '';
-    int hoursPM = hoursTime -12;
+    int hoursTime = timeList[0];
+    String time = returnTimeString(data['time']);
+
 
     List futureHours = data['hours'];
 
@@ -67,14 +66,7 @@ class _HomeState extends State<Home> {
         bgImage = 'cloudy_night.jpg';
       }
     }
-    if(hoursTime >= 0 && hoursTime <= 12 ){
-      time = '$hoursTime:$minutsTime AM';
 
-    }else {
-
-      time = '$hoursPM:$minutsTime PM';
-
-    }
     print('hours: $hoursTime');
   //  print('minuts: $minutsTime');
     String date = data['time'].substring(0,10);
@@ -139,7 +131,8 @@ class _HomeState extends State<Home> {
                       fontSize: 26.0,
                       color: Colors.white,
                         fontWeight: FontWeight.bold,
-                        fontStyle: FontStyle.italic
+                        fontStyle: FontStyle.italic,
+
                     ),),
                  ],
                 ),
@@ -182,22 +175,86 @@ class _HomeState extends State<Home> {
                 children: <Widget>[
                   Expanded(
                     child: SizedBox(
-                      height: 50.0,
-                      width: 50.0,
+                      height: 130.0,
+                      width: 60.0,
                       child: new ListView.builder(
                         scrollDirection: Axis.horizontal,
                         itemCount: hourlyList.length,
                         itemBuilder: (BuildContext ctxt, int index) {
                           return Container(
                              // padding: const EdgeInsets.fromLTRB(20.0, 0, 20.0, 0),
-                            height: 50,
-                            width: 100,
-                            color: Colors.amber,
-                            child: Center(child: Text("weather: ${hourlyList[index].conditionText}",
+                            height: 200,
+                            width: 150,
+                            child: Center(child:
+                            Card(
+                                elevation: 50,
+                                shadowColor: Colors.black,
+                                color: Colors.blueGrey,
+                                child:
+                                Column(
+                                  children: [
+                                    Row(
+                                children: <Widget>[
+                                      Image.network('https:${hourlyList[index].conditionIcon}'
+                                          , height: 40
+                                      ),
+                                      Text("${returnTimeString(hourlyList[index].time)}",
                             style: TextStyle(
                               fontSize: 12.0,
                               color: Colors.white,
-                            ))));
+                            )),]),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    Text("${hourlyList[index].conditionText} ",
+                                        style: TextStyle(
+                                          fontSize: 15.0,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                          fontStyle: FontStyle.italic,
+
+                                        )),]),
+                                Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    Text("${hourlyList[index].temp_c.round()}°C, ",
+                                        style: TextStyle(
+                                          fontSize: 10.0,
+                                          color: Colors.white,
+                                        )),
+                                    Text("Feels: ${hourlyList[index].feelslike_c.round()}°C",
+                                        style: TextStyle(
+                                          fontSize: 10.0,
+                                          color: Colors.white,
+                                        )),]),
+                                    Row(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: <Widget>[
+                                          Text("Humidity: ${hourlyList[index].humidity}, ",
+                                              style: TextStyle(
+                                                fontSize: 10.0,
+                                                color: Colors.white,
+                                              )),
+
+                                        ]),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    Text("Pressure: ${hourlyList[index].pressure_mb} mb",
+                                        style: TextStyle(
+                                          fontSize: 10.0,
+                                          color: Colors.white,
+                                        )),
+                                  ]),
+
+                                    Text("Wind: ${hourlyList[index].wind_kph} kgh ${hourlyList[index].wind_dir}",
+                                        style: TextStyle(
+                                          fontSize: 10.0,
+                                          color: Colors.white,
+                                        )),
+                                  ],
+                                ))
+                            ));
                         },
                       ),
                     ),

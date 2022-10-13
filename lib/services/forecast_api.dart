@@ -14,7 +14,7 @@ Future<HourlyData> fetchForecastData( LocationString loc) async {
   HourlyData result;
   final response = await http
       .get(Uri.parse(
-      'http://api.weatherapi.com/v1/forecast.json?key=5cfaeac162474604bf9181011222909&q=${loc
+      'http://api.weatherapi.com/v1/forecast.json?key=b1b9d391429345cb957141450221310&q=${loc
           .locationString}&tp=60'));
 
   if (response.statusCode == 200) {

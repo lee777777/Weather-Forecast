@@ -21,8 +21,8 @@ class HourlyData {
        int index = 0;
 
             while(index < jsonList.length ) {
-              if(int.parse(returnTime(jsonList[index]['time'])[0]) <=
-                  int.parse(returnTime(localTime)[0])){
+              if(returnTime(jsonList[index]['time'])[0] <=
+                  returnTime(localTime)[0]){
                 weather = WeatherData(
                     temp_c: 0,
                     feelslike_c: 0,

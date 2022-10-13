@@ -11,7 +11,7 @@ import 'package:weather_lady2/models/location_data.dart';
        WeatherData result;
        final response = await http
            .get(Uri.parse(
-           'http://api.weatherapi.com/v1/current.json?key=5cfaeac162474604bf9181011222909&q=${loc
+           'http://api.weatherapi.com/v1/current.json?key=b1b9d391429345cb957141450221310&q=${loc
                .locationString}'));
 
        if (response.statusCode == 200) {
